@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:54:38 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/04 18:32:17 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/08 09:31:38 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	print_msg(std::string code)
 			<< std::endl;
 	else if (code == "WRONG INPUT")
 		std::cout << "You're really dumb, that's sad... Please retry !"
-			<< std::endl << "You can tap ADD, SEARCH or EXIT." << std::endl;
+			<< std::endl << "You can tap ADD, SEARCH or EXIT." << std::endl
+			<< std::endl;
 	else if (code == "EXIT")
 		std::cout << "I heard you leaved your new amazing phonebook Awphone. We\
 ll... I hope you'll come back soon. I have some information on you that can int\
