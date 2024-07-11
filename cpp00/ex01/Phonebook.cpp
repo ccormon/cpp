@@ -6,67 +6,66 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:17:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/08 10:36:58 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/11 13:49:43 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+#include <iomanip>
 
 bool	PhoneBook::add(int index)
 {
+	std::string	tmp;
+
 	std::cout << "Please enter the first name:" << std::endl;
-	std::getline(std::cin, this->m_contact[index].m_fist_name);
+	std::getline(std::cin, tmp);
+	this->m_contact[index].set_first_name(tmp);
 	std::cout << "Please enter the last name:" << std::endl;
-	std::getline(std::cin, this->m_contact[index].m_last_name);
+	std::getline(std::cin, tmp);
+	this->m_contact[index].set_last_name(tmp);
 	std::cout << "Please enter the nickname:" << std::endl;
-	std::getline(std::cin, this->m_contact[index].m_nickname);
+	std::getline(std::cin, tmp);
+	this->m_contact[index].set_nickname(tmp);
 	std::cout << "Please enter the phone number:" << std::endl;
-	std::getline(std::cin, this->m_contact[index].m_phone_number);
+	std::getline(std::cin, tmp);
+	this->m_contact[index].set_phone_number(tmp);
 	std::cout << "Please enter the dark secret (wooooo...):" << std::endl;
-	std::getline(std::cin, this->m_contact[index].m_dark_secret);
+	std::getline(std::cin, tmp);
+	this->m_contact[index].set_dark_secret(tmp);
 	std::cout << std::endl;
-	if (this->m_contact[index].m_fist_name.empty()
-		|| this->m_contact[index].m_last_name.empty()
-		|| this->m_contact[index].m_nickname.empty()
-		|| this->m_contact[index].m_phone_number.empty()
-		|| this->m_contact[index].m_dark_secret.empty())
+	if (this->m_contact[index].get_first_name().empty()
+		|| this->m_contact[index].get_last_name().empty()
+		|| this->m_contact[index].get_nickname().empty()
+		|| this->m_contact[index].get_phone_number().empty()
+		|| this->m_contact[index].get_dark_secret().empty())
 		return (false);
 	return (true);
 }
 
-void	PhoneBook::print_in_phonebook(std::string &str)
+void	PhoneBook::print_in_phonebook(const std::string str)
 {
-	for (int i = 0; i < 10; i++)
+
+	if (str.length() <= 10)
+		std::cout << std::setw(10) << std::right << str;
+	else
 	{
-		if (str.size() <= 10)
-		{
-			if ((size_t)i < str.size())
-				std::cout << str[i];
-			else
-				std::cout << " ";
-		}
-		else
-		{
-			if (i < 9)
-				std::cout << str[i];
-			else
-				std::cout << ".";
-		}
+		std::string	too_long = str.substr(0, 9);
+		std::cout << std::setw(9) << std::right << too_long << ".";
 	}
 }
 
 void	PhoneBook::print_phonebook(void)
 {
-	std::cout << "INDEX     " << "|" << "FIRST NAME" << "|" << "LAST NAME "
-		<< "|" << "NICKNAME  " << std::endl;
+	std::cout << "     INDEX" << "|" << "FIRST NAME" << "|" << " LAST NAME"
+		<< "|" << "  NICKNAME" << std::endl;
 	for (int index = 0; index < 8; index++)
 	{
-		std::cout << index << "         " << "|";
-		print_in_phonebook(this->m_contact[index].m_fist_name);
+		std::cout << "         " << index << "|";
+		print_in_phonebook(this->m_contact[index].get_first_name());
 		std::cout << "|";
-		print_in_phonebook(this->m_contact[index].m_last_name);
+		print_in_phonebook(this->m_contact[index].get_last_name());
 		std::cout << "|";
-		print_in_phonebook(this->m_contact[index].m_nickname);
+		print_in_phonebook(this->m_contact[index].get_nickname());
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
@@ -113,19 +112,20 @@ what an index is ?" << std::endl;
 	}
 	index = index_to_find(to_find);
 	std::cout << std::endl;
-	if (this->m_contact[index].m_fist_name.empty())
+	if (this->m_contact[index].get_first_name().empty())
 		std::cout << "You don't know how to read a tab ? You're desperate... Th\
 ere's no contact with this index !" << std::endl;
 	else
 	{
-		std::cout << "First name: " << this->m_contact[index].m_fist_name
+		std::cout << "First name: " << this->m_contact[index].get_first_name()
 			<< std::endl;
-		std::cout << "Last name: " << this->m_contact[index].m_last_name
+		std::cout << "Last name: " << this->m_contact[index].get_last_name()
 			<< std::endl;
-		std::cout << "Nickname: " << this->m_contact[index].m_nickname << std::endl;
-		std::cout << "Phone number: " << this->m_contact[index].m_phone_number
+		std::cout << "Nickname: " << this->m_contact[index].get_nickname()
 			<< std::endl;
-		std::cout << "Dark secret: " << this->m_contact[index].m_dark_secret
+		std::cout << "Phone number: "
+			<< this->m_contact[index].get_phone_number() << std::endl;
+		std::cout << "Dark secret: " << this->m_contact[index].get_dark_secret()
 			<< std::endl;
 	}
 	std::cout << std::endl;

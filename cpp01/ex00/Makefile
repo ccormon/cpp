@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/02 13:35:53 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/11 13:25:15 by ccormon          ###   ########.fr        #
+#    Created: 2024/07/08 11:01:52 by ccormon           #+#    #+#              #
+#    Updated: 2024/07/08 11:42:44 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= phonebook
+NAME		= braiiiiiiinnnzzzZ
 
 CXX			= c++
 RM			= rm -f
@@ -18,8 +18,9 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
-			  Contact\
-			  Phonebook
+			  Zombie\
+			  newZombie\
+			  randomChump
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

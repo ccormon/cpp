@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:09:34 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/09 11:28:18 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/10 09:50:17 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 
 int	main(int argc, char **argv)
 {
+	std::string		filename = argv[1];
+	std::string		s1 = argv[2];
+	std::string		s2 = argv[3];
+	std::string		output_filename = filename + ".replace";
+	std::string		to_add;
 	std::ifstream	input;
 	std::ofstream	output;
-	std::string		output_filename;
-	std::string		to_add;
 
 	if (argc != 4)
 	{
@@ -28,18 +31,16 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
-	input.open(argv[1], std::ifstream::in);
-	if (input.failbit)
+	input.open(filename.c_str(), std::ifstream::in);
+	if (!input)
 	{
 		std::cout << "ERROR: " << argv[1]
 			<< ": Invalid file or permission denied." << std::endl;
 		return (1);
 	}
 
-	output_filename = argv[1];
-	output_filename += ".replace";
 	output.open(output_filename.c_str(), std::ofstream::out);
-	if (output.failbit)
+	if (!output)
 	{
 		std::cout << "ERROR: " << output_filename
 			<< ": Invalid file or permission denied." << std::endl;
@@ -47,7 +48,7 @@ int	main(int argc, char **argv)
 	}
 
 	while (std::getline(input, to_add))
-		output << to_add;
+		output << to_add << std::endl;
 
 	input.close();
 	output.close();

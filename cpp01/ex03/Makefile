@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/02 13:35:53 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/11 13:25:15 by ccormon          ###   ########.fr        #
+#    Created: 2024/07/08 13:50:57 by ccormon           #+#    #+#              #
+#    Updated: 2024/07/08 13:53:04 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= phonebook
+NAME		= violence
 
 CXX			= c++
 RM			= rm -f
@@ -18,8 +18,9 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
-			  Contact\
-			  Phonebook
+			  Weapon\
+			  HumanA\
+			  HumanB
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

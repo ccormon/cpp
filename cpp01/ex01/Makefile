@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/02 13:35:53 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/11 13:25:15 by ccormon          ###   ########.fr        #
+#    Created: 2024/07/08 11:48:16 by ccormon           #+#    #+#              #
+#    Updated: 2024/07/08 13:05:15 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= phonebook
+NAME		= horde
 
 CXX			= c++
 RM			= rm -f
@@ -18,8 +18,8 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
-			  Contact\
-			  Phonebook
+			  Zombie\
+			  zombieHorde
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 
