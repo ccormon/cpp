@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/11 16:39:46 by ccormon          ###   ########.fr        #
+#    Created: 2024/07/11 16:40:54 by ccormon           #+#    #+#              #
+#    Updated: 2024/07/11 16:41:16 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= winnners
+NAME		= harl
 
 CXX			= c++
 RM			= rm -f
