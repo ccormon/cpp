@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:08:38 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/08 11:44:54 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 14:58:57 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class	Zombie
 {
 	public:
+		Zombie();
 		~Zombie();
 		void	announce(void);
 		void	setName(std::string name);

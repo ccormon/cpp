@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:38 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/12 14:32:00 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 16:09:02 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 class	Harl
 {
 	public:
+		Harl();
+		~Harl();
 		void	complain(std::string level);
 
 	private:

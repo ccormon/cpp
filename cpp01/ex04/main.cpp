@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:09:34 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/11 16:38:24 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 16:04:59 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,27 @@
 
 int	main(int argc, char **argv)
 {
+	if (argc != 4)
+	{
+		std::cout << "ERROR: Wrong number of arguments.\nPlease\
+ enter a command like:\n\t./winners <filename> s1 s2" << std::endl;
+		return (1);
+	}
+
 	std::string		filename = argv[1];
 	std::string		s1 = argv[2];
 	std::string		s2 = argv[3];
 	std::string		output_filename = filename + ".replace";
-	std::string		to_add;
-	std::ifstream	input;
-	std::ofstream	output;
-	size_t			found_at;
 
-	if (argc != 4 || s1.length() == 0 || s2.length() == 0)
+	if (filename.length() == 0 || s1.length() == 0 || s2.length() == 0)
 	{
-		std::cout << "ERROR: Wrong number of arguments or wrong format.\nPlease\
- enter a command like:\n\t<filename> s1 s2" << std::endl;
+		std::cout << "ERROR: Wrong format.\nPlease\
+ enter a command like:\n\t./winners <filename> s1 s2" << std::endl;
 		return (1);
 	}
+
+	std::ifstream	input;
+	std::ofstream	output;
 
 	input.open(filename.c_str(), std::ifstream::in);
 	if (!input)
@@ -48,15 +54,17 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
+	std::string		to_add;
+
 	while (std::getline(input, to_add))
 	{
-		found_at = 0;
-		found_at = to_add.find(s1, found_at);
-		while (found_at != std::string::npos)
+		size_t found_at = to_add.find(s1, 0);
+
+		while (found_at < to_add.length())
 		{
 			to_add.erase(found_at, s1.length());
 			to_add.insert(found_at, s2);
-			found_at = to_add.find(s1, found_at + 1);
+			found_at = to_add.find(s1, found_at + s2.length() + 1);
 		}
 		output << to_add << std::endl;
 	}

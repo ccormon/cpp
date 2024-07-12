@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:58:13 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/08 15:25:52 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 16:11:23 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class	HumanA
 {
 	public:
 		HumanA(const std::string &name, Weapon &weapon);
+		~HumanA();
 		void	attack(void);
 
 	private:

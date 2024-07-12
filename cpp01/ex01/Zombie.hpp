@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:51:50 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/08 12:58:15 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 15:06:12 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class	Zombie
 {
 	public:
+		Zombie();
 		~Zombie();
 		void	announce(void);
 		void	setName(std::string name);
@@ -28,6 +29,6 @@ class	Zombie
 };
 
 Zombie	*newZombie(std::string name);
-Zombie*	zombieHorde(int N, std::string name);
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif

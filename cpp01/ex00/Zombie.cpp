@@ -6,11 +6,15 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:08:40 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/08 11:47:03 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 15:00:03 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie()
+{
+}
 
 Zombie::~Zombie()
 {

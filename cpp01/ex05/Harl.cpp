@@ -6,11 +6,19 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:49 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/12 14:48:08 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 16:08:51 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl()
+{
+}
+
+Harl::~Harl()
+{
+}
 
 void	Harl::debug(void)
 {

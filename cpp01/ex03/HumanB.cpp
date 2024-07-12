@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:13:04 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/08 15:23:48 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/12 16:11:44 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ HumanB::HumanB(const std::string name)
 {
 	this->name = name;
 	this->weapon = NULL;
+}
+
+HumanB::~HumanB()
+{
 }
 
 void	HumanB::setWeapon(Weapon &weapon)
