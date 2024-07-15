@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:17:16 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/15 15:29:38 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/15 16:24:32 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ class	Fixed
 		static const int	nbBits = 8;
 };
 
-void	operator<<()
+std::ostream	&operator<<(std::ostream out, const Fixed &n);
 
 #endif
