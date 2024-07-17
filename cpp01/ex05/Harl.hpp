@@ -6,12 +6,15 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:38 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/12 16:09:02 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/13 15:39:34 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef HARL_HPP
+# define HARL_HPP
+
+# include <iostream>
+# include <string>
 
 class	Harl
 {
@@ -26,3 +29,5 @@ class	Harl
 		void	warning(void);
 		void	error(void);
 };
+
+#endif

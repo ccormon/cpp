@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:17:16 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/15 16:24:32 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:03:55 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+#include <cmath>
 
 class	Fixed
 {
