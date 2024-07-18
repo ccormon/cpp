@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:17:16 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/17 21:03:55 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/18 14:51:33 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class	Fixed
 {
 	public:
 		Fixed();
-		Fixed(const Fixed &to_copy);
+		Fixed(const Fixed &toCopy);
 		~Fixed();
-		Fixed	&operator=(const Fixed &to_copy);
+		Fixed	&operator=(const Fixed &fixed);
 
 		Fixed(const int toConvert);
 		Fixed(const float toConvert);
@@ -37,6 +37,6 @@ class	Fixed
 		static const int	nbBits = 8;
 };
 
-std::ostream	&operator<<(std::ostream out, const Fixed &n);
+std::ostream	&operator<<(std::ostream &out, const Fixed &n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:17:53 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/18 14:51:35 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/18 16:34:56 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,97 @@ Fixed::Fixed(const float toConvert)
 	rawBits = roundf(toConvert * float(1 << nbBits));
 }
 
+bool	Fixed::operator>(const Fixed &fixed)
+{
+	return (rawBits > fixed.rawBits);
+}
+
+bool	Fixed::operator<(const Fixed &fixed)
+{
+	return (rawBits < fixed.rawBits);
+}
+
+bool	Fixed::operator>=(const Fixed &fixed)
+{
+	return (rawBits >= fixed.rawBits);
+}
+
+bool	Fixed::operator<=(const Fixed &fixed)
+{
+	return (rawBits <= fixed.rawBits);
+}
+
+bool	Fixed::operator==(const Fixed &fixed)
+{
+	return (rawBits == fixed.rawBits);
+}
+
+bool	Fixed::operator!=(const Fixed &fixed)
+{
+	return (rawBits != fixed.rawBits);
+}
+
+Fixed	Fixed::operator+(const Fixed &fixed)
+{
+	Fixed	result;
+
+	result.rawBits = rawBits + fixed.rawBits;
+	return (result);
+}
+
+Fixed	Fixed::operator-(const Fixed &fixed)
+{
+	Fixed	result;
+
+	result.rawBits = rawBits - fixed.rawBits;
+	return (result);
+}
+
+Fixed	Fixed::operator*(const Fixed &fixed)
+{
+	Fixed	result;
+
+	result.rawBits = (long(rawBits) * long(fixed.rawBits)) >> nbBits;
+	return (result);
+}
+
+Fixed	Fixed::operator/(const Fixed &fixed)
+{
+	Fixed	result;
+
+	result.rawBits = (long(rawBits) << nbBits) / fixed.rawBits;
+	return (result);
+}
+
+Fixed	&operator++(void)
+{
+	++rawBits;
+	return (*this);
+}
+
+Fixed	&operator--(void)
+{
+	--rawBits;
+	return (*this);
+
+}
+
+Fixed	operator++(int)
+{
+	Fixed	tmp = *this;
+
+	rawBits++;
+	return (tmp);
+}
+
+Fixed	operator--(int)
+{
+	Fixed	tmp = *this;
+
+	rawBits--
+	return (tmp);
+}
+
 int	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -68,6 +159,34 @@ float	Fixed::toFloat(void) const
 int	Fixed::toInt(void) const
 {
 	return (rawBits >> nbBits);
+}
+
+static Fixed		&min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+static Fixed		&max(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (b);
+	return (a);
+}
+
+static const Fixed	&min(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+static const Fixed	&max(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return (b);
+	return (a);
 }
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &n)
