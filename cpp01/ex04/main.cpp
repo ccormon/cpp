@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:09:34 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/12 16:04:59 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/19 14:42:59 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	std::string		s2 = argv[3];
 	std::string		output_filename = filename + ".replace";
 
-	if (filename.length() == 0 || s1.length() == 0 || s2.length() == 0)
+	if (filename.length() == 0 || s1.length() == 0)
 	{
 		std::cout << "ERROR: Wrong format.\nPlease\
  enter a command like:\n\t./winners <filename> s1 s2" << std::endl;
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 		{
 			to_add.erase(found_at, s1.length());
 			to_add.insert(found_at, s2);
-			found_at = to_add.find(s1, found_at + s2.length() + 1);
+			found_at = to_add.find(s1, found_at + s2.length());
 		}
 		output << to_add << std::endl;
 	}
