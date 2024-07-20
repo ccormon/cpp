@@ -6,29 +6,30 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:50:56 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/20 09:50:07 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/20 13:33:47 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ScavTrap	fizz("Fizz");
-	ScavTrap	buzz("Buzz");
+	FragTrap	fizz("Fizz");
+	FragTrap	buzz;
 	int			i(0);
 
 	std::cout << std::endl;
 	fizz.attack("Buzz");
-	buzz.takeDamage(20);
+	buzz.takeDamage(30);
 	buzz.beRepaired(42);
-	fizz.guardGate();
+	fizz.highFivesGuys();
 	std::cout << std::endl;
 	std::cout << "A METEOR CRASHES !!" << std::endl;
 	fizz.takeDamage(100);
 	buzz.takeDamage(100);
 	std::cout << std::endl;
-	while (i++ < 50)
+	while (i++ < 100)
 		buzz.attack("Meteor");
 	std::cout << std::endl;
 	return (0);
