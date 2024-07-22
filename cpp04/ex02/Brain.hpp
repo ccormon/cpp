@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 16:17:48 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 14:59:39 by ccormon          ###   ########.fr       */
+/*   Created: 2024/07/22 15:05:49 by ccormon           #+#    #+#             */
+/*   Updated: 2024/07/22 16:57:49 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
 
-class	WrongAnimal
+# define N 100
+# define TAB_SIZE 5
+
+class	Brain
 {
 	public:
-					WrongAnimal();
-					WrongAnimal(const WrongAnimal &toCopy);
-					~WrongAnimal();
-		WrongAnimal	&operator=(const WrongAnimal &toCopy);
-
-					WrongAnimal(std::string type);
-
-		std::string	getType(void) const;
-		void		makeSound(void) const;
+				Brain();
+				Brain(const Brain &toCopy);
+				~Brain();
+		Brain	&operator=(const Brain &toCopy);
 
 	protected:
-		std::string	type;
+		std::string	ideas[N];
 };
 
 #endif

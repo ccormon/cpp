@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 13:39:36 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/22 14:51:43 by ccormon          ###   ########.fr        #
+#    Updated: 2024/07/22 16:56:03 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= polymorphisme
+NAME		= burn
 
 CXX			= c++
 RM			= rm -f
@@ -21,8 +21,7 @@ SRCFILE		= main\
 			  Animal\
 			  Dog\
 			  Cat\
-			  WrongAnimal\
-			  WrongCat
+			  Brain
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

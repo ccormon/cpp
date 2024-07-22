@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 16:23:33 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/20 16:37:25 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/22 14:53:41 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ WrongAnimal::WrongAnimal(std::string type)
 	this->type = type;
 }
 
-std::string	WrongAnimal::getType()
+std::string	WrongAnimal::getType() const
 {
 	return (this->type);
 }
 
-void	WrongAnimal::makeSound(void)
+void	WrongAnimal::makeSound(void) const
 {
 	std::cout << "WrongAnimal: niiiiiiiiiiiiiiiiiii..." << std::endl;
 }

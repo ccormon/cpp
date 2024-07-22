@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 16:17:48 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 14:59:39 by ccormon          ###   ########.fr       */
+/*   Created: 2024/07/20 14:16:55 by ccormon           #+#    #+#             */
+/*   Updated: 2024/07/22 17:45:13 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include <string>
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class	WrongAnimal
+class	Cat: public AAnimal
 {
 	public:
-					WrongAnimal();
-					WrongAnimal(const WrongAnimal &toCopy);
-					~WrongAnimal();
-		WrongAnimal	&operator=(const WrongAnimal &toCopy);
+				Cat();
+				Cat(const Cat &toCopy);
+				~Cat();
+		Cat		&operator=(const Cat &toCopy);
 
-					WrongAnimal(std::string type);
+		void	makeSound(void) const;
 
-		std::string	getType(void) const;
-		void		makeSound(void) const;
-
-	protected:
-		std::string	type;
+	private:
+		Brain	*brain;
 };
 
 #endif

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 16:17:48 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 14:59:39 by ccormon          ###   ########.fr       */
+/*   Created: 2024/07/20 13:42:45 by ccormon           #+#    #+#             */
+/*   Updated: 2024/07/22 17:03:13 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-# include <iostream>
-# include <string>
-
-class	WrongAnimal
+int	main(void)
 {
-	public:
-					WrongAnimal();
-					WrongAnimal(const WrongAnimal &toCopy);
-					~WrongAnimal();
-		WrongAnimal	&operator=(const WrongAnimal &toCopy);
+	const Animal* tab[TAB_SIZE];
 
-					WrongAnimal(std::string type);
+	for (int i = 0; i < TAB_SIZE; i++)
+	{
+		if (i <= TAB_SIZE / 2)
+			tab[i] = new Dog();
+		else
+			tab[i] = new Cat();
+	}
 
-		std::string	getType(void) const;
-		void		makeSound(void) const;
+	for (int i = 0; i < TAB_SIZE; i++)
+		delete tab[i];
 
-	protected:
-		std::string	type;
-};
-
-#endif
+	return (0);
+}

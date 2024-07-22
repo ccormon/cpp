@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 16:17:48 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 14:59:39 by ccormon          ###   ########.fr       */
+/*   Created: 2024/07/22 18:08:41 by ccormon           #+#    #+#             */
+/*   Updated: 2024/07/22 18:12:21 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-# include <iostream>
-# include <string>
-
-class	WrongAnimal
+class	ICharacter
 {
 	public:
-					WrongAnimal();
-					WrongAnimal(const WrongAnimal &toCopy);
-					~WrongAnimal();
-		WrongAnimal	&operator=(const WrongAnimal &toCopy);
-
-					WrongAnimal(std::string type);
-
-		std::string	getType(void) const;
-		void		makeSound(void) const;
-
-	protected:
-		std::string	type;
+		virtual			~ICharacter() {}
+		virtual			std::string const &getName() const = 0;
+		virtual void	equip(AMateria *m) = 0;
+		virtual void	unequip(int idx) = 0;
+		virtual void	use(int idx, ICharacter &target) = 0;
 };
 
 #endif

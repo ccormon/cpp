@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 13:39:36 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/22 14:51:43 by ccormon          ###   ########.fr        #
+#    Updated: 2024/07/22 17:29:28 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= polymorphisme
+NAME		= abstract
 
 CXX			= c++
 RM			= rm -f
@@ -18,11 +18,10 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
-			  Animal\
+			  AAnimal\
 			  Dog\
 			  Cat\
-			  WrongAnimal\
-			  WrongCat
+			  Brain
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

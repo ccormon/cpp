@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 13:40:48 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 14:59:48 by ccormon          ###   ########.fr       */
+/*   Created: 2024/07/22 17:51:39 by ccormon           #+#    #+#             */
+/*   Updated: 2024/07/22 17:56:00 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-
-# include <iostream>
-# include <string>
-
-class	Animal
+int	main(void)
 {
-	public:
-				Animal();
-				Animal(const Animal &toCopy);
-		virtual	~Animal();
-		Animal	&operator=(const Animal &toCopy);
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-				Animal(std::string type);
+	ICharacter* me = new Character("me");
 
-				std::string	getType(void) const;
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
 
-		virtual void	makeSound(void) const;
+	ICharacter* bob = new Character("bob");
 
-	protected:
-		std::string	type;
-};
+	me->use(0, *bob);
+	me->use(1, *bob);
 
-#endif
+	delete bob;
+	delete me;
+	delete src;
+
+	return (0);
+}
