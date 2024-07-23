@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:17:53 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/18 16:34:56 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/23 17:23:07 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,37 +48,37 @@ Fixed::Fixed(const float toConvert)
 	rawBits = roundf(toConvert * float(1 << nbBits));
 }
 
-bool	Fixed::operator>(const Fixed &fixed)
+bool	Fixed::operator>(const Fixed &fixed) const
 {
 	return (rawBits > fixed.rawBits);
 }
 
-bool	Fixed::operator<(const Fixed &fixed)
+bool	Fixed::operator<(const Fixed &fixed) const
 {
 	return (rawBits < fixed.rawBits);
 }
 
-bool	Fixed::operator>=(const Fixed &fixed)
+bool	Fixed::operator>=(const Fixed &fixed) const
 {
 	return (rawBits >= fixed.rawBits);
 }
 
-bool	Fixed::operator<=(const Fixed &fixed)
+bool	Fixed::operator<=(const Fixed &fixed) const
 {
 	return (rawBits <= fixed.rawBits);
 }
 
-bool	Fixed::operator==(const Fixed &fixed)
+bool	Fixed::operator==(const Fixed &fixed) const
 {
 	return (rawBits == fixed.rawBits);
 }
 
-bool	Fixed::operator!=(const Fixed &fixed)
+bool	Fixed::operator!=(const Fixed &fixed) const
 {
 	return (rawBits != fixed.rawBits);
 }
 
-Fixed	Fixed::operator+(const Fixed &fixed)
+Fixed	Fixed::operator+(const Fixed &fixed) const
 {
 	Fixed	result;
 
@@ -86,7 +86,7 @@ Fixed	Fixed::operator+(const Fixed &fixed)
 	return (result);
 }
 
-Fixed	Fixed::operator-(const Fixed &fixed)
+Fixed	Fixed::operator-(const Fixed &fixed) const
 {
 	Fixed	result;
 
@@ -94,7 +94,7 @@ Fixed	Fixed::operator-(const Fixed &fixed)
 	return (result);
 }
 
-Fixed	Fixed::operator*(const Fixed &fixed)
+Fixed	Fixed::operator*(const Fixed &fixed) const
 {
 	Fixed	result;
 
@@ -102,7 +102,7 @@ Fixed	Fixed::operator*(const Fixed &fixed)
 	return (result);
 }
 
-Fixed	Fixed::operator/(const Fixed &fixed)
+Fixed	Fixed::operator/(const Fixed &fixed) const
 {
 	Fixed	result;
 
@@ -110,20 +110,20 @@ Fixed	Fixed::operator/(const Fixed &fixed)
 	return (result);
 }
 
-Fixed	&operator++(void)
+Fixed	&Fixed::operator++(void)
 {
 	++rawBits;
 	return (*this);
 }
 
-Fixed	&operator--(void)
+Fixed	&Fixed::operator--(void)
 {
 	--rawBits;
 	return (*this);
 
 }
 
-Fixed	operator++(int)
+Fixed	Fixed::operator++(int)
 {
 	Fixed	tmp = *this;
 
@@ -131,11 +131,11 @@ Fixed	operator++(int)
 	return (tmp);
 }
 
-Fixed	operator--(int)
+Fixed	Fixed::operator--(int)
 {
 	Fixed	tmp = *this;
 
-	rawBits--
+	rawBits--;
 	return (tmp);
 }
 
@@ -161,28 +161,28 @@ int	Fixed::toInt(void) const
 	return (rawBits >> nbBits);
 }
 
-static Fixed		&min(Fixed &a, Fixed &b)
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a < b)
 		return (a);
 	return (b);
 }
 
-static Fixed		&max(Fixed &a, Fixed &b)
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
 {
 	if (a < b)
 		return (b);
 	return (a);
 }
 
-static const Fixed	&min(const Fixed &a, const Fixed &b)
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
 {
 	if (a < b)
 		return (a);
 	return (b);
 }
 
-static const Fixed	&max(const Fixed &a, const Fixed &b)
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
 {
 	if (a < b)
 		return (b);

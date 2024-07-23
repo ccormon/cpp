@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:17:16 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/18 16:28:39 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/23 17:23:38 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ class	Fixed
 							Fixed(const int toConvert);
 							Fixed(const float toConvert);
 
-		bool				operator>(const Fixed &fixed);
-		bool				operator<(const Fixed &fixed);
-		bool				operator>=(const Fixed &fixed);
-		bool				operator<=(const Fixed &fixed);
-		bool				operator==(const Fixed &fixed);
-		bool				operator!=(const Fixed &fixed);
+		bool				operator>(const Fixed &fixed) const;
+		bool				operator<(const Fixed &fixed) const;
+		bool				operator>=(const Fixed &fixed) const;
+		bool				operator<=(const Fixed &fixed) const;
+		bool				operator==(const Fixed &fixed) const;
+		bool				operator!=(const Fixed &fixed) const;
 
-		Fixed				operator+(const Fixed &fixed);
-		Fixed				operator-(const Fixed &fixed);
-		Fixed				operator*(const Fixed &fixed);
-		Fixed				operator/(const Fixed &fixed);
+		Fixed				operator+(const Fixed &fixed) const;
+		Fixed				operator-(const Fixed &fixed) const;
+		Fixed				operator*(const Fixed &fixed) const;
+		Fixed				operator/(const Fixed &fixed) const;
 
 		Fixed				&operator++(void);
 		Fixed				&operator--(void);
