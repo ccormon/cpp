@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:29:01 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/20 09:47:52 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/24 16:44:40 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ class	ScavTrap : public ClapTrap
 
 					ScavTrap(std::string name);
 
+		void		attack(const std::string& target);
 		void		guardGate(void);
-
-	private:
 };
 
 #endif

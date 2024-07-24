@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:50:56 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/19 16:24:53 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/24 15:23:10 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ int	main(void)
 	buzz.takeDamage(0);
 	buzz.beRepaired(42);
 	std::cout << std::endl;
+
 	std::cout << "A METEOR CRASHES !!" << std::endl;
 	fizz.takeDamage(21);
 	std::cout << std::endl;
+
 	while (i++ < 10)
 		buzz.attack("Meteor");
 	std::cout << std::endl;
+
 	return (0);
 }

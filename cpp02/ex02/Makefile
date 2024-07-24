@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 12:15:19 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/18 10:35:59 by ccormon          ###   ########.fr        #
+#    Updated: 2024/07/24 11:36:15 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= firststep
+NAME		= cantalk
 
 CXX			= c++
 RM			= rm -f
