@@ -6,7 +6,7 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/22 17:51:16 by ccormon           #+#    #+#              #
-#    Updated: 2024/07/22 17:51:43 by ccormon          ###   ########.fr        #
+#    Updated: 2024/07/27 17:02:14 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,14 @@ NAME		= abstract
 CXX			= c++
 RM			= rm -f
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g
 
 SRCFILE		= main\
-			  AAnimal\
-			  Dog\
-			  Cat\
-			  Brain
+			  AMateria\
+			  Character\
+			  Cure\
+			  Ice\
+			  MateriaSource
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

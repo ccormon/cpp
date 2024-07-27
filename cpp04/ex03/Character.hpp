@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:17:49 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/25 17:40:29 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 12:45:40 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
-# include "AMateria.hpp"
-
-# define MAX_ITEMS 4
 
 class	Character: public ICharacter
 {

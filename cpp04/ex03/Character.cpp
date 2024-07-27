@@ -6,15 +6,19 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:17:38 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/25 17:46:42 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 17:06:12 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(void): Character("Someone")
+Character::Character(void)
 {
 	std::cout << "Character: Default constructor called" << std::endl;
+	this->name = "Someone";
+	for (int i = 0; i < MAX_ITEMS; i++)
+		this->items[i] = NULL;
+	this->floor = NULL;
 }
 
 Character::Character(const Character &toCopy)
@@ -37,8 +41,8 @@ Character::~Character(void)
 	for (int i = 0; i < MAX_ITEMS; i++)
 		if (this->items[i])
 			delete this->items[i];
-	for (int i = 0; this->floor && this->floor[i]; i++)
-		delete this->floor[i];
+	if (this->floor)
+		delete this->floor;
 }
 
 Character	&Character::operator=(const Character &toCopy)
@@ -54,6 +58,7 @@ Character	&Character::operator=(const Character &toCopy)
 		else
 			this->items[i] = NULL;
 	}
+	return (*this);
 }
 
 Character::Character(std::string name)
@@ -62,6 +67,7 @@ Character::Character(std::string name)
 	this->name = name;
 	for (int i = 0; i < MAX_ITEMS; i++)
 		this->items[i] = NULL;
+	this->floor = NULL;
 }
 
 std::string const	&Character::getName() const
@@ -72,20 +78,33 @@ std::string const	&Character::getName() const
 void	Character::equip(AMateria *m)
 {
 	int	i;
+
 	for (i = 0; i < MAX_ITEMS && this->items[i]; i++);
 	if (i < MAX_ITEMS)
 	{
 		this->items[i] = m->clone();
-		std::cout << this->name << " can't add one more item" << std::endl;
-	}
-	else
 		std::cout << this->name << " add " << m->getType()
 			<< " to his/her stuff" << std::endl;
+	}
+	else
+		std::cout << this->name << " can't add one more item" << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
-
+	if (idx >= 0 && idx < MAX_ITEMS && this->items[idx])
+	{
+		delete this->floor;
+		this->floor = this->items[idx];
+		this->items[idx] = NULL;
+		std::cout << this->name << " left a " << this->floor->getType()
+			<< " on the floor" << std::endl;
+		std::cout << "If any other item was already left behind, it is gone for\
+ever" << std::endl;
+	}
+	else
+		std::cout << this->name << " hasn't any item at this index"
+			<< std::endl;
 }
 
 void	Character::use(int idx, ICharacter &target)

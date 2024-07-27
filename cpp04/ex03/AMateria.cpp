@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:56:39 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/24 17:23:35 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 12:59:03 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ AMateria::AMateria(void)
 AMateria::AMateria(const AMateria &toCopy)
 {
 	std::cout << "AMateria: Copy constructor called" << std::endl;
+	this->type = toCopy.type;
 }
 
 AMateria::~AMateria(void)
@@ -30,24 +31,22 @@ AMateria::~AMateria(void)
 AMateria	&AMateria::operator=(const AMateria &toCopy)
 {
 	std::cout << "AMateria: Copy assigment operator called" << std::endl;
+	this->type = toCopy.type;
+	return (*this);
 }
 
 AMateria::AMateria(std::string const &type)
 {
 	std::cout << "AMateria: Type constructor called" << std::endl;
+	this->type = type;
 }
 
 std::string const	&AMateria::getType(void) const
 {
-	return ((const)this->type);
-}
-
-AMateria	*AMateria::clone(void) const
-{
-
+	return (this->type);
 }
 
 void	AMateria::use(ICharacter &target)
 {
-
+	(void)target;
 }

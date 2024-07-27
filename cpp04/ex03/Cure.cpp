@@ -6,13 +6,13 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:16:59 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/25 10:24:46 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 15:14:31 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void): AMateria("ice")
+Cure::Cure(void): AMateria("cure")
 {
 	std::cout << "Cure: Default constructor called" << std::endl;
 }
@@ -36,7 +36,7 @@ Cure	&Cure::operator=(const Cure &toCopy)
 
 AMateria	*Cure::clone() const
 {
-	AMateria	*cure = new Cure();
+	AMateria	*cure = new Cure(*this);
 
 	return (cure);
 }

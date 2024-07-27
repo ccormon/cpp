@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:16:21 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/24 17:31:23 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 15:14:28 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Ice	&Ice::operator=(const Ice &toCopy)
 
 AMateria	*Ice::clone() const
 {
-	AMateria	*ice = new Ice();
+	AMateria	*ice = new Ice(*this);
 
 	return (ice);
 }

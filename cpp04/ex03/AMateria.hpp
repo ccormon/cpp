@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:53:47 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/24 17:23:26 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 13:15:27 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 
 # include <iostream>
 # include <string>
+# include "ICharacter.hpp"
 
-class AMateria
+# define MAX_ITEMS 4
+
+class	ICharacter;
+
+class	AMateria
 {
 	protected:
 		std::string	type;
@@ -24,7 +29,7 @@ class AMateria
 	public:
 							AMateria();
 							AMateria(const AMateria &toCopy);
-							~AMateria();
+		virtual				~AMateria();
 		AMateria			&operator=(const AMateria &toCopy);
 
 							AMateria(std::string const &type);

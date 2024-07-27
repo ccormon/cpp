@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:08:41 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/25 16:59:43 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/27 12:46:30 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ICHARACTER_HPP
 
 # include "AMateria.hpp"
+
+class	AMateria;
 
 class	ICharacter
 {
