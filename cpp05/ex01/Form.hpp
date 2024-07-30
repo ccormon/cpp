@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 10:56:33 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/30 11:52:33 by ccormon          ###   ########.fr       */
+/*   Created: 2024/07/30 15:30:45 by ccormon           #+#    #+#             */
+/*   Updated: 2024/07/30 18:31:01 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 # include <iostream>
 # include <string>
-# include <exception>
+# include <stdbool.h>
+# include "Bureaucrat.hpp"
 
 # define GRADE_MAX 1
 # define GRADE_MIN 150
 
-// class	exception
-// {
-// public:
-// 						exception() throw(){} //Constructeur.
-// 	virtual				exception() throw(); //Destructeur.
+class	Bureaucrat;
 
-// 	virtual const char	*what() const throw(); //Renvoie une chaîne "à la C" contenant des infos sur l'erreur.
-// };
-
-class	Bureaucrat
+class	Form
 {
 	class	GradeTooHighException: public std::exception
 	{
@@ -44,21 +38,27 @@ class	Bureaucrat
 	};
 
 	public:
-							Bureaucrat(std::string name = "Someone",
-								unsigned int grade = GRADE_MIN);
-							Bureaucrat(const Bureaucrat &toCopy);
-							~Bureaucrat(void);
-		Bureaucrat			&operator=(const Bureaucrat &toCopy);
+							Form(std::string name = "some form",
+								bool isSigned = false,
+								const unsigned int gradeMinToSign = GRADE_MAX,
+								const unsigned int gradeManToExec = GRADE_MAX);
+							Form(const Form &toCopy);
+							~Form();
+		Form				&operator=(const Form &toCopy);
 
 		const std::string	&getName(void) const;
-		unsigned int		getGrade(void) const;
-		void				incrementGrade(void);
-		void				decrementGrade(void);
+		bool				getIsSigned(void) const;
+		const unsigned int	getGradeMinToSign(void) const;
+		const unsigned int	getGradeMinToExec(void) const;
+
+		void				beSigned(const Bureaucrat &bureaucrat);
 
 	private:
 		const std::string	name;
-		unsigned int		grade;
-};
+		bool				isSigned;
+		const unsigned int	gradeMinToSign;
+		const unsigned int	gradeMinToExec;
+}
 
 std::ostream	&operator<<(std::ostream& flux, const Bureaucrat &bureaucrat);
 

@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:56:33 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/30 11:52:33 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/30 15:41:39 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <exception>
 
 # define GRADE_MAX 1
 # define GRADE_MIN 150
