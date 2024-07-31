@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:42:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 14:58:21 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 16:55:02 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	wrongAnimal(void)
 int	main(void)
 {
 	rightAnimal();
+	std::cout << std::endl;
 	wrongAnimal();
 
 	return (0);

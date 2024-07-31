@@ -6,16 +6,16 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:42:22 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 17:44:22 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 17:11:45 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal()
+AAnimal::AAnimal(std::string type):
+	type(type)
 {
 	std::cout << "AAnimal: Default contructor called" << std::endl;
-	this->type = "nasique";
 }
 
 AAnimal::AAnimal(const AAnimal &toCopy)
@@ -34,12 +34,6 @@ AAnimal	&AAnimal::operator=(const AAnimal &toCopy)
 	std::cout << "AAnimal: Copy assigment operator called" << std::endl;
 	this->type = toCopy.type;
 	return (*this);
-}
-
-AAnimal::AAnimal(std::string type)
-{
-	std::cout << "AAnimal: Type constructor called" << std::endl;
-	this->type = type;
 }
 
 std::string	AAnimal::getType(void) const

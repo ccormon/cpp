@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 14:00:32 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 17:14:56 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 16:58:14 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Dog: public Animal
 				~Dog();
 		Dog		&operator=(const Dog &toCopy);
 
-		void makeSound(void) const;
+		void	makeSound(void) const;
 
 	private:
 		Brain	*brain;

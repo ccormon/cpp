@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:42:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 17:03:13 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 17:05:17 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(void)
 		else
 			tab[i] = new Cat();
 	}
+
+	std::cout << std::endl;
 
 	for (int i = 0; i < TAB_SIZE; i++)
 		delete tab[i];

@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 13:40:48 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/22 17:44:39 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 17:11:19 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@
 class	AAnimal
 {
 	public:
-				AAnimal();
-				AAnimal(const AAnimal &toCopy);
-		virtual	~AAnimal();
-		AAnimal	&operator=(const AAnimal &toCopy);
+						AAnimal(std::string type = "random");
+						AAnimal(const AAnimal &toCopy);
+		virtual			~AAnimal();
+		AAnimal			&operator=(const AAnimal &toCopy);
 
-				AAnimal(std::string type);
-
-				std::string	getType(void) const;
+		std::string		getType(void) const;
 
 		virtual void	makeSound(void) const = 0;
 
