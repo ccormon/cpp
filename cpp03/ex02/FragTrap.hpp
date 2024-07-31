@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 09:54:25 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/24 15:20:39 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 15:23:31 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 class	FragTrap : public ClapTrap
 {
 	public:
-					FragTrap();
+					FragTrap(std::string name = "Someone");
 					FragTrap(const FragTrap &toCopy);
 					~FragTrap();
 		FragTrap	&operator=(const FragTrap &toCopy);
-
-					FragTrap(std::string name);
 
 		void		highFivesGuys(void);
 };

@@ -6,19 +6,20 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:51:16 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/20 09:49:50 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 15:17:40 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(std::string name, unsigned int hitPoints,
+		unsigned int energyPoints, unsigned int attackDamage):
+	name(name),
+	hitPoints(hitPoints),
+	energyPoints(energyPoints),
+	attackDamage(attackDamage)
 {
 	std::cout << "ClapTrap: Default constructor called" << std::endl;
-	this->name = "Dimitri";
-	this->hitPoints = 10;
-	this->energyPoints = 10;
-	this->attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &toCopy)
@@ -40,25 +41,6 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &toCopy)
 	this->energyPoints = toCopy.energyPoints;
 	this->attackDamage = toCopy.attackDamage;
 	return (*this);
-}
-
-ClapTrap::ClapTrap(std::string name)
-{
-	std::cout << "ClapTrap: Name constructor called" << std::endl;
-	this->name = name;
-	this->hitPoints = 10;
-	this->energyPoints = 10;
-	this->attackDamage = 0;
-}
-
-ClapTrap::ClapTrap(std::string name, unsigned int hitPoints,
-	unsigned int energyPoints, unsigned int attackDamage)
-{
-	std::cout << "ClapTrap: Complete constructor called" << std::endl;
-	this->name = name;
-	this->hitPoints = hitPoints;
-	this->energyPoints = energyPoints;
-	this->attackDamage = attackDamage;
 }
 
 void	ClapTrap::attack(const std::string& target)

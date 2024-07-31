@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:29:01 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/24 16:44:40 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 15:15:08 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 class	ScavTrap : public ClapTrap
 {
 	public:
-					ScavTrap();
+					ScavTrap(std::string name = "Someone");
 					ScavTrap(const ScavTrap &toCopy);
 					~ScavTrap();
 		ScavTrap	&operator=(const ScavTrap &toCopy);
-
-					ScavTrap(std::string name);
 
 		void		attack(const std::string& target);
 		void		guardGate(void);

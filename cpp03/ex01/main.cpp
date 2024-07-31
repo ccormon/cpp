@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:50:56 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/24 16:45:52 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/07/31 11:24:58 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	ScavTrap	fizz("Fizz");
-	ScavTrap	buzz();
+	ScavTrap	buzz;
 	int			i(0);
 
 	std::cout << std::endl;
