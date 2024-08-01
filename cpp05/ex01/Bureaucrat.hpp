@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:56:33 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/31 11:29:18 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/01 17:40:02 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,12 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
 # define GRADE_MAX 1
 # define GRADE_MIN 150
 
-// class	exception
-// {
-// public:
-// 						exception() throw(){} //Constructeur.
-// 	virtual				exception() throw(); //Destructeur.
-
-// 	virtual const char	*what() const throw(); //Renvoie une chaîne "à la C" contenant des infos sur l'erreur.
-// };
+class	Form;
 
 class	Bureaucrat
 {
@@ -53,6 +47,7 @@ class	Bureaucrat
 		unsigned int		getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
+		void				signForm(const Form &toSign);
 
 	private:
 		const std::string	name;

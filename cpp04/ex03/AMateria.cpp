@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:56:39 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/31 17:33:27 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/01 14:01:07 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,4 @@ AMateria::AMateria(std::string const &type)
 std::string const	&AMateria::getType(void) const
 {
 	return (this->type);
-}
-
-void	AMateria::use(ICharacter &target)
-{
-	(void)target;
 }

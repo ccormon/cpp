@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/30 18:31:01 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/01 17:42:24 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class	Form
 
 		const std::string	&getName(void) const;
 		bool				getIsSigned(void) const;
-		const unsigned int	getGradeMinToSign(void) const;
-		const unsigned int	getGradeMinToExec(void) const;
+		unsigned int	getGradeMinToSign(void) const;
+		unsigned int	getGradeMinToExec(void) const;
 
 		void				beSigned(const Bureaucrat &bureaucrat);
 
@@ -58,7 +58,7 @@ class	Form
 		bool				isSigned;
 		const unsigned int	gradeMinToSign;
 		const unsigned int	gradeMinToExec;
-}
+};
 
 std::ostream	&operator<<(std::ostream& flux, const Bureaucrat &bureaucrat);
 

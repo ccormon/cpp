@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:53:47 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/27 13:15:27 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/01 14:01:39 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class	AMateria
 
 		std::string const	&getType() const; //Returns the materia type
 		virtual AMateria	*clone() const = 0;
-		virtual void		use(ICharacter &target);
+		virtual void		use(ICharacter &target) = 0;
 };
 
 #endif

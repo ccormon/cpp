@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:33:41 by ccormon           #+#    #+#             */
-/*   Updated: 2024/07/29 13:02:08 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/01 17:41:39 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,18 @@ void	Bureaucrat::decrementGrade(void)
 	if (this->grade >= GRADE_MIN)
 		throw(Bureaucrat::GradeTooLowException());
 	this->grade++;
+}
+
+void	Bureaucrat::signForm(const Form &toSign)
+{
+	if (this->grade > toSign.getGradeMinToSign())
+	{
+		std::cout << this->name << " couldn't sign " << toSign.getName()
+			<< " because ";
+		throw(Bureaucrat::GradeTooLowException());
+	}
+	toSign.beSigned(*this);
+	std::cout << this->name << " signed " << toSign.getName() << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream& flux, const Bureaucrat &bureaucrat)
