@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:56:33 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 10:01:28 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/02 16:07:53 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define GRADE_MAX 1
 # define GRADE_MIN 150
 
-class	Form;
+class	AForm;
 
 class	Bureaucrat
 {
@@ -47,7 +47,7 @@ class	Bureaucrat
 		unsigned int		getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
-		void				signForm(Form &toSign);
+		void				signForm(AForm &toSign);
 
 	private:
 		const std::string	name;

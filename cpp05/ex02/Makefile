@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 13:39:36 by ccormon           #+#    #+#              #
-#    Updated: 2024/08/02 13:49:13 by ccormon          ###   ########.fr        #
+#    Updated: 2024/08/02 16:09:01 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= multiform
+NAME		= formup
 
 CXX			= c++
 RM			= rm -f
@@ -18,7 +18,8 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
-			  Bureaucrat
+			  Bureaucrat\
+			  AForm
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

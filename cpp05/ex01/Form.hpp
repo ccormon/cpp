@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 13:53:16 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/02 18:04:30 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ class	Form
 	};
 
 	class	GradeTooLowException: public std::exception
+	{
+		public:
+			const char	*what() const throw();
+	};
+
+	class	FormAlreadySignedException: public std::exception
 	{
 		public:
 			const char	*what() const throw();

@@ -6,20 +6,30 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:57 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 14:00:50 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/02 18:04:51 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-const char	*AForm::GradeTooHighException::what() const throw()
+const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+	return ("grade too high");
 }
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+	return ("grade too low");
+}
+
+const char	*AForm::FormAlreadySignedException::what() const throw()
+{
+	return ("form already signed");
+}
+
+const char	*AForm::FormNotSignedException::what() const throw()
+{
+	return ("form not signed");
 }
 
 AForm::AForm(std::string name, const unsigned int gradeMinToSign,
@@ -30,9 +40,9 @@ AForm::AForm(std::string name, const unsigned int gradeMinToSign,
 	gradeMinToExec(gradeMinToExec)
 {
 	if (gradeMinToSign > GRADE_MIN || gradeMinToExec > GRADE_MIN)
-		throw(Form::GradeTooLowException());
+		throw(AForm::GradeTooLowException());
 	else if (gradeMinToSign < GRADE_MAX || gradeMinToExec < GRADE_MAX)
-		throw(Form::GradeTooHighException());
+		throw(AForm::GradeTooHighException());
 }
 
 AForm::AForm(const AForm &toCopy):
@@ -76,7 +86,7 @@ unsigned int	AForm::getGradeMinToExec(void) const
 void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (this->isSigned)
-		return ;
+		throw(AForm::FormAlreadySign());
 	if (bureaucrat.getGrade() <= this->gradeMinToSign)
 	{
 		std::cout << bureaucrat << ", sign form " << this->getName()
@@ -84,7 +94,7 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 		this->isSigned = true;
 	}
 	else
-		throw(Form::GradeTooLowException());
+		throw(AForm::GradeTooLowException());
 }
 
 std::ostream	&operator<<(std::ostream& flux, const AForm &form)
