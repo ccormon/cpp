@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:57 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 13:47:22 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/02 14:00:50 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-const char	*Form::GradeTooHighException::what() const throw()
+const char	*AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high");
 }
 
-const char	*Form::GradeTooLowException::what() const throw()
+const char	*AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
 }
 
-Form::Form(std::string name, const unsigned int gradeMinToSign,
+AForm::AForm(std::string name, const unsigned int gradeMinToSign,
 		const unsigned int gradeMinToExec):
 	name(name),
 	isSigned(false),
@@ -35,7 +35,7 @@ Form::Form(std::string name, const unsigned int gradeMinToSign,
 		throw(Form::GradeTooHighException());
 }
 
-Form::Form(const Form &toCopy):
+AForm::AForm(const AForm &toCopy):
 	name(toCopy.name),
 	isSigned(toCopy.isSigned),
 	gradeMinToSign(toCopy.gradeMinToSign),
@@ -43,37 +43,37 @@ Form::Form(const Form &toCopy):
 {
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
-Form	&Form::operator=(const Form &toCopy)
+AForm	&AForm::operator=(const AForm &toCopy)
 {
 	this->isSigned = toCopy.isSigned;
 	return (*this);
 }
 
-const std::string	&Form::getName(void) const
+const std::string	&AForm::getName(void) const
 {
 	return (this->name);
 }
 
-bool	Form::getIsSigned(void) const
+bool	AForm::getIsSigned(void) const
 {
 	return (this->isSigned);
 }
 
-unsigned int	Form::getGradeMinToSign(void) const
+unsigned int	AForm::getGradeMinToSign(void) const
 {
 	return (this->gradeMinToSign);
 }
 
-unsigned int	Form::getGradeMinToExec(void) const
+unsigned int	AForm::getGradeMinToExec(void) const
 {
 	return (this->gradeMinToExec);
 }
 
-void	Form::beSigned(const Bureaucrat &bureaucrat)
+void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (this->isSigned)
 		return ;
@@ -87,7 +87,7 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 		throw(Form::GradeTooLowException());
 }
 
-std::ostream	&operator<<(std::ostream& flux, const Form &form)
+std::ostream	&operator<<(std::ostream& flux, const AForm &form)
 {
 	if (form.getIsSigned())
 		flux << form.getName() << ", form signed with a grade "

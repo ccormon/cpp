@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/01 17:42:24 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/02 13:53:16 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ class	Form
 
 	public:
 							Form(std::string name = "some form",
-								bool isSigned = false,
 								const unsigned int gradeMinToSign = GRADE_MAX,
 								const unsigned int gradeManToExec = GRADE_MAX);
 							Form(const Form &toCopy);
@@ -48,18 +47,18 @@ class	Form
 
 		const std::string	&getName(void) const;
 		bool				getIsSigned(void) const;
-		unsigned int	getGradeMinToSign(void) const;
-		unsigned int	getGradeMinToExec(void) const;
+		unsigned int		getGradeMinToSign(void) const;
+		unsigned int		getGradeMinToExec(void) const;
 
 		void				beSigned(const Bureaucrat &bureaucrat);
 
 	private:
 		const std::string	name;
 		bool				isSigned;
-		const unsigned int	gradeMinToSign;
-		const unsigned int	gradeMinToExec;
+		unsigned int		gradeMinToSign;
+		unsigned int		gradeMinToExec;
 };
 
-std::ostream	&operator<<(std::ostream& flux, const Bureaucrat &bureaucrat);
+std::ostream	&operator<<(std::ostream& flux, const Form &form);
 
 #endif

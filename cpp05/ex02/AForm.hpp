@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 10:56:33 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 10:01:28 by ccormon          ###   ########.fr       */
+/*   Created: 2024/08/02 13:49:31 by ccormon           #+#    #+#             */
+/*   Updated: 2024/08/02 13:58:31 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include <stdbool.h>
+# include "Bureaucrat.hpp"
 
 # define GRADE_MAX 1
 # define GRADE_MIN 150
 
-class	Form;
+class	Bureaucrat;
 
-class	Bureaucrat
+class	AForm
 {
 	class	GradeTooHighException: public std::exception
 	{
@@ -37,23 +38,27 @@ class	Bureaucrat
 	};
 
 	public:
-							Bureaucrat(std::string name = "Someone",
-								unsigned int grade = GRADE_MIN);
-							Bureaucrat(const Bureaucrat &toCopy);
-							~Bureaucrat(void);
-		Bureaucrat			&operator=(const Bureaucrat &toCopy);
+							AForm(std::string name = "some form",
+								const unsigned int gradeMinToSign = GRADE_MAX,
+								const unsigned int gradeManToExec = GRADE_MAX);
+							AForm(const Form &toCopy);
+		virtual				~AForm();
+		AForm				&operator=(const Form &toCopy);
 
 		const std::string	&getName(void) const;
-		unsigned int		getGrade(void) const;
-		void				incrementGrade(void);
-		void				decrementGrade(void);
-		void				signForm(Form &toSign);
+		bool				getIsSigned(void) const;
+		unsigned int		getGradeMinToSign(void) const;
+		unsigned int		getGradeMinToExec(void) const;
+
+		void				beSigned(const Bureaucrat &bureaucrat) = 0;
 
 	private:
 		const std::string	name;
-		unsigned int		grade;
+		bool				isSigned;
+		unsigned int		gradeMinToSign;
+		unsigned int		gradeMinToExec;
 };
 
-std::ostream	&operator<<(std::ostream& flux, const Bureaucrat &bureaucrat);
+std::ostream	&operator<<(std::ostream& flux, const AForm &aform);
 
 #endif
