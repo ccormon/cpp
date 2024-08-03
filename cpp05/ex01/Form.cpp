@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:57 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 18:04:34 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/03 15:47:02 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ Form::~Form()
 Form	&Form::operator=(const Form &toCopy)
 {
 	this->isSigned = toCopy.isSigned;
-	this->gradeMinToSign = toCopy.gradeMinToSign;
-	this->gradeMinToExec = toCopy.gradeMinToExec;
 	return (*this);
 }
 
@@ -83,7 +81,7 @@ unsigned int	Form::getGradeMinToExec(void) const
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (this->isSigned)
-		throw(Form::FormAlreadySign());
+		throw(Form::FormAlreadySignedException());
 	if (bureaucrat.getGrade() <= this->gradeMinToSign)
 	{
 		std::cout << bureaucrat << ", sign form " << this->getName()

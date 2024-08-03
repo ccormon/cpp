@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/03 15:47:33 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/03 15:47:58 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <string>
@@ -23,33 +23,39 @@
 
 class	Bureaucrat;
 
-class	Form
+class	AForm
 {
-	class	GradeTooHighException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
-	class	GradeTooLowException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
-	class	FormAlreadySignedException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
 	public:
-							Form(std::string name = "some form",
+		class	GradeTooHighException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+		class	GradeTooLowException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+		class	FormAlreadySignedException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+		class	FormNotSignedException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+							AForm(std::string name = "some form",
 								const unsigned int gradeMinToSign = GRADE_MAX,
 								const unsigned int gradeManToExec = GRADE_MAX);
-							Form(const Form &toCopy);
-							~Form();
-		Form				&operator=(const Form &toCopy);
+							AForm(const AForm &toCopy);
+		virtual				~AForm();
+		AForm				&operator=(const AForm &toCopy);
 
 		const std::string	&getName(void) const;
 		bool				getIsSigned(void) const;
@@ -57,6 +63,7 @@ class	Form
 		unsigned int		getGradeMinToExec(void) const;
 
 		void				beSigned(const Bureaucrat &bureaucrat);
+		virtual void		execute(const Bureaucrat &executor) const = 0;
 
 	private:
 		const std::string	name;
@@ -65,6 +72,6 @@ class	Form
 		const unsigned int	gradeMinToExec;
 };
 
-std::ostream	&operator<<(std::ostream& flux, const Form &form);
+std::ostream	&operator<<(std::ostream& flux, const AForm &form);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:30:45 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/02 18:04:24 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/03 15:47:26 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,36 @@ class	Bureaucrat;
 
 class	AForm
 {
-	class	GradeTooHighException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
-	class	GradeTooLowException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
-	class	FormAlreadySignedException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
-	class	FormNotSignedException: public std::exception
-	{
-		public:
-			const char	*what() const throw();
-	};
-
 	public:
+		class	GradeTooHighException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+		class	GradeTooLowException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+		class	FormAlreadySignedException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
+		class	FormNotSignedException: public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+
 							AForm(std::string name = "some form",
 								const unsigned int gradeMinToSign = GRADE_MAX,
 								const unsigned int gradeManToExec = GRADE_MAX);
 							AForm(const AForm &toCopy);
-							~AForm();
+		virtual				~AForm();
 		AForm				&operator=(const AForm &toCopy);
 
 		const std::string	&getName(void) const;
@@ -63,12 +63,13 @@ class	AForm
 		unsigned int		getGradeMinToExec(void) const;
 
 		void				beSigned(const Bureaucrat &bureaucrat);
+		virtual void		execute(const Bureaucrat &executor) const = 0;
 
 	private:
 		const std::string	name;
 		bool				isSigned;
-		unsigned int		gradeMinToSign;
-		unsigned int		gradeMinToExec;
+		const unsigned int	gradeMinToSign;
+		const unsigned int	gradeMinToExec;
 };
 
 std::ostream	&operator<<(std::ostream& flux, const AForm &form);

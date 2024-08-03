@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:56:10 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/03 15:36:40 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/03 15:25:02 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void	testShrubberyCreationForm(void)
 {
 	Bureaucrat	christelle("Christelle", 138);
 	Bureaucrat	ghislaine("Ghislaine", 137);
-	AForm		*dumbForm = new ShrubberyCreationForm;
+	Intern		florian;
+	AForm		*dumbForm = florian.makeForm("ShrubberyCreationForm", "Rouen");
 
 	std::cout << christelle << ", try to execute " << dumbForm->getName()
 		<< std::endl;
@@ -45,7 +47,8 @@ void	testRobotomyRequestForm(void)
 {
 	Bureaucrat	christelle("Christelle", 46);
 	Bureaucrat	ghislaine("Ghislaine", 45);
-	AForm		*dumbForm = new RobotomyRequestForm;
+	Intern		florian;
+	AForm		*dumbForm = florian.makeForm("RobotomyRequestForm", "Rouen");
 
 	std::cout << christelle << ", try to execute " << dumbForm->getName()
 		<< std::endl;
@@ -61,8 +64,7 @@ void	testRobotomyRequestForm(void)
 
 	std::cout << ghislaine << ", try to execute " << dumbForm->getName()
 		<< std::endl;
-	for (int i = 0; i < 10; i++)
-		ghislaine.executeFrom(*dumbForm);
+	ghislaine.executeFrom(*dumbForm);
 
 	delete dumbForm;
 }
@@ -71,7 +73,8 @@ void	testPresidentialPardonForm(void)
 {
 	Bureaucrat	christelle("Christelle", 6);
 	Bureaucrat	ghislaine("Ghislaine", 5);
-	AForm		*dumbForm = new PresidentialPardonForm;
+	Intern		florian;
+	AForm		*dumbForm = florian.makeForm("PresidentialPardonForm", "Rouen");
 
 	std::cout << christelle << ", try to execute " << dumbForm->getName()
 		<< std::endl;
@@ -88,6 +91,14 @@ void	testPresidentialPardonForm(void)
 	std::cout << ghislaine << ", try to execute " << dumbForm->getName()
 		<< std::endl;
 	ghislaine.executeFrom(*dumbForm);
+
+	delete dumbForm;
+}
+
+void	testRandomForm(void)
+{
+	Intern	florian;
+	AForm	*dumbForm = florian.makeForm("RandomForm", "Rouen");
 
 	delete dumbForm;
 }
@@ -99,6 +110,8 @@ int	main(void)
 	testRobotomyRequestForm();
 	std::cout << std::endl;
 	testPresidentialPardonForm();
+	std::cout << std::endl;
+	testRandomForm();
 
 	return (0);
 }

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 10:30:01 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/03 10:35:17 by ccormon          ###   ########.fr       */
+/*   Created: 2024/08/02 18:25:05 by ccormon           #+#    #+#             */
+/*   Updated: 2024/08/02 18:32:04 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
 
-class	PresidentialPardonForm: public AForm
+class	RobotomyRequestForm: public AForm
 {
 	public:
-								PresidentialPardonForm(
-										const std::string &target = "42");
-								PresidentialPardonForm(
-										const PresidentialPardonForm &toCopy);
-								~PresidentialPardonForm();
-		PresidentialPardonForm	&operator=(
-										const PresidentialPardonForm &toCopy);
-	
-	void						execute(const Bureaucrat &executor) const;
+							RobotomyRequestForm(
+									const std::string &target = "42");
+							RobotomyRequestForm(
+									const RobotomyRequestForm &toCopy);
+							~RobotomyRequestForm();
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &toCopy);
+
+		void				execute(const Bureaucrat &executor) const;
 
 	private:
 		std::string	target;
