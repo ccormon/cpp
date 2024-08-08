@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:22:59 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/08 17:56:26 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/08 18:17:31 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,15 @@ void	ScalarConverter::convert(const std::string &toConvert)
 
 	if (*end)
 	{
-		if (toConvert.length() != 1 && )
+		if (toConvert.length() != 1)
 		{
-			std::cout << "Error: wrong format" << std::endl;
-			return ;
+			std::string test = end;
+
+			if (test != "f")
+			{
+				std::cout << "Error: wrong format" << std::endl;
+				return ;
+			}
 		}
 		else
 		{
