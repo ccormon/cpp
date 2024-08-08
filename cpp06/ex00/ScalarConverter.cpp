@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:22:59 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/08 16:05:11 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/08 17:33:56 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,39 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &toCopy)
 
 static bool	isGoodFormat(const std::string &toConvert)
 {
-
-}
-
-void	ScalarConverter::convert(const std::string &toConvert)
-{
 	if (toConvert.length() == 0)
-		return ;
+	{
+		std::cout << "Error: empty string" << std::endl;
+		return (false);
+	}
 
 	if (toConvert.length() != 1)
 	{
 		for (int i = 0; toConvert[i]; i++)
+		{
 			if (toConvert[i] < 48 || toConvert[i] > 57)
-				return ;
+			{
+				std::cout << "Error: wrong format" << std::endl;
+				return (false);
+			}
+		}
 	}
 	else
+	{
 		if (toConvert[0] < 32 || toConvert[0] > 126)
-			return ;
+		{
+			std::cout << "Error: non displayable character" << std::endl;
+			return (false);
+		}
+	}
+
+	return (true);
+}
+
+void	ScalarConverter::convert(const std::string &toConvert)
+{
+	if (!isGoodFormat(toConvert))
+		return ;
 
 	char		*end;
 	long double	d = strtold(toConvert.c_str(), &end);
