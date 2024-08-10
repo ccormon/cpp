@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:19:10 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/04 17:14:08 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/10 11:13:10 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@
 # include <climits>
 # include <cfloat>
 # include <cstdlib>
+# include <cctype>
+# include <cstring>
+# include <cmath>
 
 # define IMPOSSIBLE "impossible"
 # define NON_DISPLAYABLE "non displayable"
-# define NAN "nan"
-# define NANF "nanf"
-# define NEG_INF "-inf"
-# define POS_INF "+inf"
-# define NEG_INFF "-inff"
-# define POS_INFF "+inff"
 # define FLOAT "f"
 # define DECIMAL ".0"
 # define SQUOTE "'"
