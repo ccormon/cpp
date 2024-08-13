@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:19:10 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/13 14:15:33 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/13 15:43:05 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@
 
 class	ScalarConverter
 {
-	public:
+	private:
 						ScalarConverter();
 						ScalarConverter(const ScalarConverter &toCopy);
-						~ScalarConverter();
 		ScalarConverter	&operator=(const ScalarConverter &toCopy);
 
-		static void		convert(const std::string &toConvert);
+	public:
+					~ScalarConverter();
+
+		static void	convert(const std::string &toConvert);
 };
 
 #endif
