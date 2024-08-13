@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:19:10 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/10 11:13:10 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/13 14:15:33 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define IMPOSSIBLE "impossible"
 # define NON_DISPLAYABLE "non displayable"
 # define FLOAT "f"
-# define DECIMAL ".0"
+# define DOT ".0"
 # define SQUOTE "'"
 
 class	ScalarConverter
