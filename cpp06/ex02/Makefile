@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/08/13 17:54:00 by ccormon          ###   ########.fr        #
+#    Updated: 2024/08/15 12:06:46 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= serialization
+NAME		= identify
 
 CXX			= c++
 RM			= rm -f
@@ -18,7 +18,8 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
-			  Serializer
+			  Base\
+			  identify
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

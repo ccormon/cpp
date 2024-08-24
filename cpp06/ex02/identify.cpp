@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:33:50 by ccormon           #+#    #+#             */
-/*   Updated: 2024/08/13 18:38:35 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/08/15 12:05:57 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,43 @@ Base	*generate(void)
 
 void	identify(Base *p)
 {
-
+	if (dynamic_cast<A*>(p))
+		std::cout << "A";
+	else if (dynamic_cast<B*>(p))
+		std::cout << "B";
+	else if (dynamic_cast<C*>(p))
+		std::cout << "C";
+	else
+		std::cerr << "Error";
+	std::cout << std::endl;
 }
 
 void	identify(Base &p)
 {
-
+	try
+	{
+		(void)dynamic_cast<A&>(p);
+		std::cout << "A";
+	}
+	catch(const std::exception &e)
+	{
+		try
+		{
+			(void)dynamic_cast<B&>(p);
+			std::cout << "B";
+		}
+		catch(const std::exception &e)
+		{
+			try
+			{
+				(void)dynamic_cast<C&>(p);
+				std::cout << "C";
+			}
+			catch(const std::exception &e)
+			{
+				std::cerr << "Error";
+			}
+		}
+	}
+	std::cout << std::endl;
 }
