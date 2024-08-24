@@ -6,16 +6,16 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/08/24 13:56:22 by ccormon          ###   ########.fr        #
+#    Updated: 2024/08/24 14:42:49 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= iter
+NAME		= array
 
 CXX			= c++
 RM			= rm -f
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g
 
 SRCFILE		= main\
 
