@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/09/27 18:18:10 by ccormon          ###   ########.fr        #
+#    Updated: 2024/09/30 14:53:27 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= start
+NAME		= mutant
 
 CXX			= c++
 RM			= rm -f

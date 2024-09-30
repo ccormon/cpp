@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/09/28 09:57:45 by ccormon          ###   ########.fr        #
+#    Updated: 2024/09/30 11:23:11 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= start
+NAME		= span
 
 CXX			= c++
 RM			= rm -f
