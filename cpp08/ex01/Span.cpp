@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:57:16 by ccormon           #+#    #+#             */
-/*   Updated: 2024/09/30 13:26:57 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/01 11:19:33 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	Span::shortestSpan(void)
 
 	std::sort(this->begin(), this->end());
 	for (unsigned int i = 1; i < this->size(); i++)
-		shortestSpan = std::min(shortestSpan, static_cast<int>(std::abs((*this)[i] - (*this)[i - 1])));
+		shortestSpan = std::min(shortestSpan, (*this)[i] - (*this)[i - 1]);
 	return (shortestSpan);
 }
 

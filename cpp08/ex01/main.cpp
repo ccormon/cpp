@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:56:57 by ccormon           #+#    #+#             */
-/*   Updated: 2024/09/30 15:07:26 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/01 11:30:46 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,15 @@ int	main(void)
 
 	std::cout << "\nTEST MANY NUMBERS\n";
 
-	#define BIG_NUMBERS 100000
+	#define BIG_NUMBERS 10000
 
 	Span				sp3 = Span(BIG_NUMBERS);
 	std::vector<int>	vect;
+
 	for (int i = 1; i <= BIG_NUMBERS; i++)
 		vect.push_back(i);
+
+	sp3.addRange(vect.begin(), vect.end());
 
 	try
 	{
