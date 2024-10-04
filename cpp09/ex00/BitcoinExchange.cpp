@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 15:49:00 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/03 19:51:50 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/04 14:53:18 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,18 +129,14 @@ static std::string	normalizeDate(int year, int month, int day)
 
 static void	findClosestDate(std::map<std::string, float> &data, const std::string &date, const float value)
 {
-	int	dateYear = atoi(date.substr(0, 4).c_str());
-	int	dateMonth = atoi(date.substr(5, 2).c_str());
-	int	dateDay = atoi(date.substr(8, 2).c_str());
+	int	year = atoi(date.substr(0, 4).c_str());
+	int	month = atoi(date.substr(5, 2).c_str());
+	int	day = atoi(date.substr(8, 2).c_str());
 
-	for (int year = dateYear; year >= 2009; year--)
+	for (; year >= 2009; year--)
 	{
-		int	month = (year == dateYear) ? dateMonth : 12;
-
 		for (; month >= 1; month--)
 		{
-			int	day = (month == dateMonth) ? dateDay : 31;
-
 			for (; day >= 1; day--)
 			{
 				std::string newDate = normalizeDate(year, month, day);
@@ -151,7 +147,9 @@ static void	findClosestDate(std::map<std::string, float> &data, const std::strin
 					return ;
 				}
 			}
+			day = 31;
 		}
+		month = 12;
 	}
 }
 
