@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/10/03 14:59:42 by ccormon          ###   ########.fr        #
+#    Updated: 2024/10/05 13:50:12 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= easy
+NAME		= RPN
 
 CXX			= c++
 RM			= rm -f
