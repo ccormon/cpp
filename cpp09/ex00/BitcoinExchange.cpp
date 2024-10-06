@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 15:49:00 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/04 14:53:18 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/06 15:40:23 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 BitcoinExchange::BitcoinExchange(int argc, char **argv)
 {
-	if (argc != 2)
+	if (argc != 2 || !argv)
 		throw (std::runtime_error("Too many or not enough arguments. Try : ./btc <input_file>"));
 
 	openInputFile(argv);

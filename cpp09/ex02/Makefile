@@ -6,11 +6,11 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/10/03 14:59:44 by ccormon          ###   ########.fr        #
+#    Updated: 2024/10/06 16:03:08 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= easy
+NAME		= PmergeMe
 
 CXX			= c++
 RM			= rm -f
@@ -18,6 +18,7 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
+			  PmergeMe
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 

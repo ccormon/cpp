@@ -6,7 +6,7 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/10/05 13:50:12 by ccormon          ###   ########.fr        #
+#    Updated: 2024/10/06 15:41:55 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ RM			= rm -f
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCFILE		= main\
+			  RPN
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
 
