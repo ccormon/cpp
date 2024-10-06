@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:04:02 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/06 20:10:19 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/06 20:48:27 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ class	PmergeMe
 		std::deque<unsigned int>	deq;
 
 		void	fillContainers(char **argv);
-		void	vectorFillPairs(vectorPair &pair);
-		void	vectorSortInsidePairs(vectorPair &pair);
-		void	vectorMergePairs(vectorPair &pair);
-		void	vectorDefineInsertOrder(vectorPair &pair, unsigned int lastElement);
-		void	vectorInsertElements(vectorPair &pair, unsigned int lastElement);
+		void	vectorFillPairs(vectorPair &pairs);
+		void	vectorSortInsidePairs(vectorPair &pairs);
+		void	vectorMergePairs(vectorPair &pairs);
+		std::vector<unsigned int>	vectorDefineInsertOrder(vectorPair &pairs, unsigned int lastElement);
+		void	vectorInsertElements(vectorPair &pairs, unsigned int lastElement);
 };
