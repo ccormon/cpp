@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:04:08 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/07 15:43:13 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/30 17:33:46 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &toCopy)
 void	PmergeMe::vectorFordJohnson(void)
 {
 	vectorPair					pairs;
-	// int							lastElement = (this->vec.size() % 2 == 0) ? -1 : *this->vec.end();
+	int							lastElement = (this->vec.size() % 2 == 0) ? -1 : *(this->vec.end() - 1);
 	std::vector<unsigned int>	insertOrder;
 
 	this->vectorFillPairs(pairs);
 
 	this->vectorMergePairs(pairs);
 
-	// insertOrder = this->vectorDefineInsertOrder(pairs.size(), lastElement);
-	// this->vectorInsertElements(pairs, lastElement);
+	insertOrder = this->vectorDefineInsertOrder(pairs.size(), lastElement);
+	this->vectorInsertElements(pairs, lastElement, insertOrder);
 }
 
 void	PmergeMe::fillContainers(char **argv)
@@ -123,6 +123,18 @@ void	PmergeMe::vectorMergePairs(vectorPair &pairs)
 	mergeSort(mainChain, 0, mainChain.size() - 1);
 
 	vectorPair	tmp;
+
+	for (unsigned int i = 0; i < mainChain.size(); i++)
+	{
+		unsigned int	j = 0;
+
+		while (pairs[j].first != mainChain[i] && j < pairs.size())
+			j++;
+		if (pairs[j].first == mainChain[i])
+			tmp.push_back(pairs[j]);
+	}
+
+	pairs = tmp;
 }
 
 std::vector<unsigned int>	PmergeMe::vectorDefineInsertOrder(unsigned int numberOfPairs, int lastElement)
@@ -142,7 +154,7 @@ std::vector<unsigned int>	PmergeMe::vectorDefineInsertOrder(unsigned int numberO
 		currentSizesSum += *groupSizes.end();
 	}
 	if (lastElement != -1 && currentSizesSum == numberOfPairs)
-		groupSizes.push_back(powerOfTwo * 2 - *groupSizes.end());
+		groupSizes.push_back(1);
 
 	std::vector<unsigned int>	indexOrder;
 	unsigned int				numberOfElementsLeftInGroup = groupSizes[0];
@@ -163,7 +175,17 @@ std::vector<unsigned int>	PmergeMe::vectorDefineInsertOrder(unsigned int numberO
 	return (indexOrder);
 }
 
-// void	PmergeMe::vectorInsertElements(vectorPair &pairs, int lastElement)
-// {
+static std::vector<unsigned int>::iterator	findPositionToInsert()
 
-// }
+void	PmergeMe::vectorInsertElements(vectorPair &pairs, int lastElement, std::vector<unsigned int> insertOrder)
+{
+	this->vec.push_back(pairs[0].second);
+
+	for (unsigned int i = 0; i < pairs.size(); i++)
+		this->vec.push_back(pairs[i].first);
+
+	for (unsigned int i = 0; i < insertOrder.size(); i++)
+	{
+		
+	}
+}

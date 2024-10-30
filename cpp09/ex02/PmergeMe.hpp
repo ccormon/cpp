@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:04:02 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/07 15:30:21 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/30 16:53:06 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	PmergeMe
 		PmergeMe	&operator=(const PmergeMe &toCopy);
 
 		void		vectorFordJohnson(void);
-		void		dequeFordJohnson(void);
+		// void		dequeFordJohnson(void);
 
 	private:
 		std::vector<unsigned int>	vec;
@@ -41,5 +41,5 @@ class	PmergeMe
 		void						vectorFillPairs(vectorPair &pairs);
 		void						vectorMergePairs(vectorPair &pairs);
 		std::vector<unsigned int>	vectorDefineInsertOrder(unsigned int numberOfPairs, int lastElement);
-		void						vectorInsertElements(vectorPair &pairs, int lastElement);
+		void						vectorInsertElements(vectorPair &pairs, int lastElement, std::vector<unsigned int> insertOrder);
 };
