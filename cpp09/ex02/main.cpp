@@ -6,23 +6,57 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:03:28 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/07 15:25:56 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/10/31 16:49:22 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+void	print_output(std::vector<unsigned int> &input, 
+	std::vector<unsigned int> &sorted_vector,
+	std::deque<unsigned int> &sorted_deque,
+	long time_vector, long time_deque, int argc)
+{
+	std::cout	<< "Before:\t" << input << std::endl
+				<< "After (v):\t" << sorted_vector << std::endl
+				<< "After (d):\t" << sorted_deque << std::endl
+				<< "Time to process a range of " << argc << " elements with std::vector:\t" 
+				<< time_vector * 1000 << "µs" << std::endl
+				<< "Time to process a range of " << argc << " elements with std::deque:\t" 
+				<< time_deque * 1000 << "µs" << std::endl;
+}
+
 int	main(int argc, char **argv)
 {
+	struct timespec time1, time2, time3, time4;
+	long time_vector, time_deque;
+	std::vector<unsigned int>	vector_before;
+	std::vector<unsigned int>	sorted_vector;
+	std::deque<unsigned int>	sorted_deque;
+
+	clock_gettime(CLOCK_REALTIME, &time1);
+
 	try
 	{
 		PmergeMe	hehe(argc, argv);
-		hehe.vectorFordJohnson();
+		vector_before = hehe.getVecBefore();
+		clock_gettime(CLOCK_REALTIME, &time2);
+
+		sorted_vector = hehe.vectorFordJohnson();
+		clock_gettime(CLOCK_REALTIME, &time3);
+
+		sorted_deque = hehe.dequeFordJohnson();
+		clock_gettime(CLOCK_REALTIME, &time4);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
+	time_vector = time3.tv_nsec - time1.tv_nsec;
+	time_deque = (time4.tv_nsec - time3.tv_nsec) + (time2.tv_nsec - time1.tv_nsec);
+
+	print_output(vector_before, sorted_vector, sorted_deque, time_vector, time_deque, argc);
+
 	return (0);
 }
