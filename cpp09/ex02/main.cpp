@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:03:28 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/31 16:49:22 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/11/01 10:03:34 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	print_output(std::vector<unsigned int> &input,
 	std::deque<unsigned int> &sorted_deque,
 	long time_vector, long time_deque, int argc)
 {
-	std::cout	<< "Before:\t" << input << std::endl
+	std::cout	<< "Before:\t\t" << input << std::endl
 				<< "After (v):\t" << sorted_vector << std::endl
 				<< "After (d):\t" << sorted_deque << std::endl
-				<< "Time to process a range of " << argc << " elements with std::vector:\t" 
+				<< "Time to process a range of " << argc << " elements with std::vector:  " 
 				<< time_vector * 1000 << "µs" << std::endl
-				<< "Time to process a range of " << argc << " elements with std::deque:\t" 
+				<< "Time to process a range of " << argc << " elements with std::deque:   " 
 				<< time_deque * 1000 << "µs" << std::endl;
 }
 
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 	try
 	{
 		PmergeMe	hehe(argc, argv);
+
 		vector_before = hehe.getVecBefore();
 		clock_gettime(CLOCK_REALTIME, &time2);
 
@@ -47,16 +48,16 @@ int	main(int argc, char **argv)
 
 		sorted_deque = hehe.dequeFordJohnson();
 		clock_gettime(CLOCK_REALTIME, &time4);
+
+		time_vector = time3.tv_nsec - time1.tv_nsec;
+		time_deque = (time4.tv_nsec - time3.tv_nsec) + (time2.tv_nsec - time1.tv_nsec);
+
+		print_output(vector_before, sorted_vector, sorted_deque, time_vector, time_deque, argc);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-	time_vector = time3.tv_nsec - time1.tv_nsec;
-	time_deque = (time4.tv_nsec - time3.tv_nsec) + (time2.tv_nsec - time1.tv_nsec);
-
-	print_output(vector_before, sorted_vector, sorted_deque, time_vector, time_deque, argc);
 
 	return (0);
 }

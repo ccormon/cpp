@@ -6,7 +6,7 @@
 /*   By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 15:49:00 by ccormon           #+#    #+#             */
-/*   Updated: 2024/10/06 15:40:23 by ccormon          ###   ########.fr       */
+/*   Updated: 2024/11/01 09:44:32 by ccormon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static bool	isDateOK(const std::string &date)
 	int	day = atoi(date.substr(8, 2).c_str());
 
 	if (year < 2009)
-		throw (std::out_of_range("There is no data before 2009"));
+		return (false);
 
 	if (month < 1 || month > 12)
 		return (false);
@@ -139,7 +139,7 @@ static void	findClosestDate(std::map<std::string, float> &data, const std::strin
 		{
 			for (; day >= 1; day--)
 			{
-				std::string newDate = normalizeDate(year, month, day);
+				std::string	newDate = normalizeDate(year, month, day);
 
 				if (data.find(newDate) != data.end())
 				{

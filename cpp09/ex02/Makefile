@@ -6,7 +6,7 @@
 #    By: ccormon <ccormon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 10:08:30 by ccormon           #+#    #+#              #
-#    Updated: 2024/10/31 15:47:26 by ccormon          ###   ########.fr        #
+#    Updated: 2024/11/01 10:02:04 by ccormon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -g -std=c++98
 
 SRCFILE		= main\
 			  PmergeMe\
+			  PmergeMeVec\
 			  PmergeMeDeq
 
 SRC			= $(addsuffix .cpp,$(SRCFILE))
